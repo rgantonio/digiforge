@@ -18,6 +18,12 @@ To run with a gui in place:
 xrun -sv -gui ../rtl/common/counter.sv ../tb/common/tb_counter.sv +access+rw
 ```
 
+In case there are some ``include` options, we need to add the include directory:
+
+```bash
+xrun -sv ../rtl/common/counter.sv ../tb/common/tb_counter.sv +access+rw -incdir ../tb/tasks
+```
+
 # GUI Guide
 
 ## TODO:
