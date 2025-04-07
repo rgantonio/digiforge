@@ -21,6 +21,9 @@ module tb_counter;
   // Outputs
   logic [COUNTER_WIDTH-1:0] count_o;
 
+  // Include some common tasks
+  `include "common_tasks.sv"
+
   // Instantiate the counter module
   counter #(
     .COUNTER_WIDTH(COUNTER_WIDTH),
@@ -46,26 +49,19 @@ module tb_counter;
     clr_i = 0;
     en_i = 0;
 
-    @(posedge clk_i);
-    @(posedge clk_i);
-    @(posedge clk_i);
+    clk_delay(3);
 
     // Reset the counter
     #1; rst_ni = 1; // Assert reset
 
-    @(posedge clk_i);
-    @(posedge clk_i);
-    @(posedge clk_i);
+    clk_delay(3);
 
     // Enable the counter and start counting
     #1; en_i = 1;
 
     // Wait for a few clock cycles
     random_delay = $urandom_range(100); // Random number between 0 and 100
-
-    for(int i=0; i <  random_delay; i=i+1) begin
-      @(posedge clk_i);
-    end
+    clk_delay(random_delay);
 
     // Display the value of the counter
     $display("Counter value: %0d", count_o);
@@ -81,18 +77,13 @@ module tb_counter;
 
     // Random number between 0 and 100
     random_delay = $urandom_range(100); 
-
-    for(int i=0; i <  random_delay; i=i+1) begin
-      @(posedge clk_i);
-    end
+    clk_delay(random_delay);
 
     // Display the value of the counter
     $display("Counter value: %0d", count_o);
 
     // Finish simulation after some time
-    for(int i=0; i < 5; i++) begin
-      @(posedge clk_i);
-    end
+    clk_delay(5);
 
     $finish;
   end
