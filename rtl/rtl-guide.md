@@ -95,4 +95,8 @@ endmodule
 
 ## :wrench: Efficient Techniques
 
-:wrench: When making RTL code, always do it in a mindset that you are making *register-transfer-level*. That's what RTL stands for in the first place. That means when we *describe* our hardware, we also have to think in `register -> logic -> register` structures.
+:wrench: When making RTL code, always do it in a mindset that you are making *register-transfer-level*. That's what RTL stands for in the first place. That means when we *describe* our hardware, we also have to think in `register -> logic -> register` structures. For example:
+
+![image](https://github.com/user-attachments/assets/0625e604-b5d9-4137-893c-e6e4114b1435)
+
+This implies that when you make internal logic or even communication between modules, as much as possible, make it in a way that it is in a `register -> logic -> register` structure. This helps a lot in synthesis and signal analysis because the inputs and outputs become predictable. Do take note that sometimes, it can be unavoidable to "break" this structure. This is only a guide to make more efficient designs.
