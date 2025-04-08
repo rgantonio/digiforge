@@ -25,7 +25,7 @@ end
 The same goes for `case` statements:
 
 ```verilog
-logic [1:0] A; 
+logic [1:0] A;
 logic B, C;
 
 always_comb begin
@@ -71,6 +71,28 @@ always_comb begin
 end
 ```
 
+:sparkles: Always append a suffix with `_i` or `_o` at every port of a module to indicate whether it is an input or output. This makes it easier for users to know if the direction of the signal. Moreover, even though it may be redundant at times, make sure to make the port names descriptive. It also makes it easier for visualization. Then, always group the ports that go together. For example, signals related for input data need to be together, regardless if they are of type `input` or `output`. Lastly, align the signals for cleanliness. For example:
+
+```verilog
+// Observe how the spaces are aligned for readability
+module some_module (
+  // Clocks and reset
+  input        clk_i,
+  input        rst_ni,
+  // Input data
+  input  [7:0] in_data_i,    // <--- All input related signals go together
+  input        in_valid_i,
+  output       in_ready_o,
+  // Output data
+  output [7:0] out_data_o,   // <--- All output related signals go together
+  output       out_valid_o,
+  input        out_ready_i
+);
+
+  // Insert whatever your module does here
+endmodule
+```
+
 ## :wrench: Efficient Techniques
 
-:wrench: When making RTL code, always do it in a mindset that you are making *register-transfer-level*. That's what RTL stands for in the first place. That means when we *describe* our hardware, we also have to think in `register -> logic -> register` patterns.
+:wrench: When making RTL code, always do it in a mindset that you are making *register-transfer-level*. That's what RTL stands for in the first place. That means when we *describe* our hardware, we also have to think in `register -> logic -> register` structures.
