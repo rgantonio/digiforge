@@ -169,6 +169,37 @@ From here on, it is better to use the GUI instead.
 
 ## 1. Opening rail anaylsis
 
+In the Voltus tabs, open `Power Rail -> Run Rail Analysis`
+
+![image](https://github.com/user-attachments/assets/ecdd424a-e331-4a41-b470-afc4f081bb54)
+
+:warning: If the `Run Rail Analysis` cannot be selected. That is because you haven't set or run the `set_rail_analysis_mode`. See step number 9 from the previous section.
+
+## 2. Setting up the Run Rail Analysis
+
+Once opened, you should see the `Run Rail Analysis` window and fill in the corresponding settings accordingly.
+
+![image](https://github.com/user-attachments/assets/d738719b-2ae5-459d-95fc-b72dc9e5b4a8)
+
+- In the 1st box, make sure to select `Net Based` option, and fill in the `Power Net(s)` box to the target analysis. In our case we use the `VDD_STDCELL`, this name needs to coincide with the power name you have in your Innovus database. Set the appropriate `Voltage(s)`. In this case, we use 0.8 V. The threshold needs to be 2.5% of the swing so in this case that is 20 mV of the supply.
+- In the 2nd box, select `Current Files` as the power data. Navigate to where you saved the `$log_dir_path/power_analysis/` directory. You should find the `.ptiavg` file with the voltage target.
+- In the last box, you need to select `XY File` which is a new file you have to add. This is the pad points file which contains information about where your power supply points will come from. You would usually place this on top of your pad. The `project.VDD.pp` file has the following format:
+
+```text
+*vsrc_name   x   y   layer_name
+VDD_STDCELL_0 14.7 380 M12
+VDD_STDCELL_1 14.7 864 M12
+VDD_STDCELL_2 14.7 1154 M12
+VDD_STDCELL_3 14.7 1280 M12
+VDD_STDCELL_4 14.7 1405 M12
+VDD_STDCELL_5 14.7 1831 M12
+VDD_STDCELL_6 14.7 2454 M12
+```
+
+The `*vsrc_name` is the name of the voltage source (you can give it any name). `x` and `y` are the point locations on where you want to place a voltage source. Lastly, the `layer_name` is where that voltage source would be placed. You would  usually place it on the top-most layer or on the pad layer.
+
+- For the last box still, don't forget to click the add button to add it to the list.
+- When finish, just click `OK` and the rail analysis will run.
 
 
 
