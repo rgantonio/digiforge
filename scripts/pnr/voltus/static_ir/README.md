@@ -14,6 +14,8 @@ You need to prepare the following:
 There are two major steps in doing static IR analysis. The 1st step is to generate average power, and the 2nd step is to annotate and analyze the average power. The steps are embedded in the [`static_ir.tcl`](./static_ir.tcl) script.
 
 
+# Static IR Setup
+
 ## 1. Setup multiprocessing.
 
 ```tcl
@@ -159,5 +161,15 @@ set_rail_analysis_mode -method static \
                         }
 ```
 
-Once this is set, you need to go to your GUI for running the rail analysis.
+Once this is set, you need to go to your GUI for running the rail analysis. This is the end of setting up the static IR analysis.
+
+# Running Static IR
+
+From here on, it is better to use the GUI instead.
+
+## 1. Opening rail anaylsis
+
+
+
+
 
