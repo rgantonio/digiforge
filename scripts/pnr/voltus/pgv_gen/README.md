@@ -5,9 +5,9 @@
 This is the first step before doing power analysis. PGV is a library that contains the resistance and electron migration (EM) databases for power analysis. This is a requirement as either static or dynamic analysis requires the PGV libraries, annotated with a `.cl` data type.
 
 There are 3 different PGV libraries that you need to generate: 
-- Tech PGV: This is usually automatically generated already so we won't discuss this here.
-- Standard Cell PGV: This is usually (or should be) provided by your foundry.
-- Macro PGV: This is mostly for memories, custom IPs, or pads. You need to make this. We will focus on the macro PGV in this guide.
+- **Tech PGV**: This is usually automatically generated already so we won't discuss this here.
+- **Standard Cell PGV**: This is usually (or should be) provided by your foundry.
+- **Macro PGV**: This is mostly for memories, custom IPs, or pads. You need to make this. We will focus on the macro PGV in this guide.
 
 Note that in this guide, we assume that you provide also the spice and GDS information for more accurate library extraction.
 
@@ -24,14 +24,14 @@ For this to work, you need the following:
 
 The [`pgv_gen.tcl`](./pgv_gen.tcl) has the following details:
 
-1. Setup multiprocessing.
+## 1. Setup multiprocessing.
 
 ```tcl
 # 1. Set multiprocessing
 set_multi_cpu_usage -cpuPerRemoteHost 64 -remoteHost 64
 ```
 
-2. Read LEF files
+## 2. Read LEF files
 
 ```tcl
 # 2. Setup and read all lef files
@@ -45,7 +45,7 @@ read_lib -lef { \
 
 ```
 
-3. Setup PGV generation mode
+## 3. Setup PGV generation mode
 
 First set the extraction mode and command for the run. This is mandatory to make the GDS extraction work.
 
@@ -174,7 +174,7 @@ via   RV    gds 85
 
 In the 3rd column, you need to specify it as `gds` to indicate it's from a gds file. The 4th column is the functional code from the GDS. Where do you get it? Either check your DRC rule deck or manually check it in Cadence Virtuoso. The numbers are just examples to protect NDA.
 
-4. Generate the library!
+## 4. Generate the library!
 
 ```tcl
 # 4. Write the pg libraryexit
@@ -195,7 +195,7 @@ At the end of this you should get a `.cl` library. You will use these files for 
 
 
 # Main References
-:warning: You need to have a Cadence account to access these links. This guide is a synthesized version of all the information. The steps can vary from version to version so keep this updated as much as possible.
+:warning: **You need to have a Cadence account to access these links**. This guide is a synthesized version of all the information. The steps can vary from version to version so keep this updated as much as possible.
 
 :bookmark: [Cadence: Power and Rail Analysis Using Voltus IC Integrity](https://support.cadence.com/apex/ArticleAttachmentPortal?id=a1O0V00000912FMUAY&pageName=ArticleContent)
 - This has a more comprehensive guide. Might as well read it while running the scripts to understand each step.
