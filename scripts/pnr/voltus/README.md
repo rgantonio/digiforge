@@ -1,4 +1,4 @@
-# Voltus Script Guide
+# :battery: Voltus Script Guide :battery:
 
 In this directory you will find useful scripts and notes for the scripts.
 
