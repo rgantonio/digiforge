@@ -156,7 +156,7 @@ metal M10   gds 40
 metal M11   gds 41
 metal M12   gds 42
 metal M13   gds 43
-metal AP	gds 74
+metal AP    gds 74
 via   VIA1  gds 51
 via   VIA2  gds 52
 via   VIA3  gds 53
