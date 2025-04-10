@@ -229,7 +229,24 @@ From here, it is recommended to switch of the `StdCell` and `Layer` views on the
 
 The left-side panel tells you already the maximum IR drop. :warning: **It is highly recommended that the worst-case drop needs to be 2.5% of the operating voltage. In this case ,our operating voltage was 0.8V and the 2.5% drop is 20 mV**
 
+# Other Notes
 
+:pushpin: *Always make sure that the recommended voltage drop is 2.5% of each power source and ground*. A total of 5% voltage squeeze when both VDD and VSS drop at the same time.
+
+# Main References
+:warning: **You need to have a Cadence account to access these links**. This guide is a synthesized version of all the information. The steps can vary from version to version so keep this updated as much as possible.
+
+
+:bookmark: [Cadence: Power and Rail Analysis Using Voltus IC Integrity](https://support.cadence.com/apex/ArticleAttachmentPortal?id=a1O0V00000912FMUAY&pageName=ArticleContent)
+- This has a more comprehensive guide. Might as well read it while running the scripts to understand each step.
+
+:bookmark: [Cadence: Rail Analysis: Recommendation to do Static and Dynamic Rail Analysis and load results in GUI](https://support.cadence.com/apex/ArticleAttachmentPortal?id=a1O0V000006AlbVUAS&pageName=ArticleContent)
+
+:bookmark: [Cadence: Recommendations for Signal EM Analysis Flow (verify_AC_limit) using Voltus](https://support.cadence.com/apex/ArticleAttachmentPortal?id=a1O3w00000ADorFEAT&pageName=ArticleContent)
+
+:bookmark: [Cadence: Early Rail Analysis (ERA): Recommendations to run ERA from Voltus or Innovus](https://support.cadence.com/apex/ArticleAttachmentPortal?id=a1O0V000009ES2UUAW&pageName=ArticleContent)
+
+:bookmark: [Dynamic Power Analysis: Recommendation to set up Dynamic Power Analysis flow](https://support.cadence.com/apex/ArticleAttachmentPortal?id=a1O0V000006Al7BUAS&pageName=ArticleContent)
 
 
 
