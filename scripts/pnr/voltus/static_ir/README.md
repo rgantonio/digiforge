@@ -201,6 +201,35 @@ The `*vsrc_name` is the name of the voltage source (you can give it any name). `
 - For the last box still, don't forget to click the add button to add it to the list.
 - When finish, just click `OK` and the rail analysis will run.
 
+## 3. Loading the Rail Analysis Database
+
+After running the rail analysis, a database will be generated. From the Voltus tabs, navigate to `Power Rail -> Power Rail Plots`:
+
+![image](https://github.com/user-attachments/assets/aa08d923-f9be-42db-98de-fa7b03f81a03)
+
+Then select the `DB Setup` button:
+
+![image](https://github.com/user-attachments/assets/e2d57ab1-b769-4fda-89e5-cfc3903b4c40)
+
+The `Power & Rail Setup` window appears and under the `Database` box, fill in the `Rail Database` with one of the `*_avg_*` directories. Whatever you specified under the `Results Directory` from step 2 is, that's where you will find these directories.
+
+![image](https://github.com/user-attachments/assets/d2eb8884-636b-4658-9dbc-eaed5c572847)
+
+Click `OK` and wait a while for the database to be loaded.
+
+## 4. Analyzing Results
+
+From the left pane where the database was loaded, select the `Rail` type at the top. Then a drop-down box allows you to select the IR drop option:
+
+![image](https://github.com/user-attachments/assets/6539cf5a-c587-4d5c-8167-f701aabdbd45)
+
+From here, it is recommended to switch of the `StdCell` and `Layer` views on the right-side panel so we can just display the IR drops. You should see:
+
+![image](https://github.com/user-attachments/assets/ead20c12-1afe-4c91-ac95-760390d5aeaf)
+
+The left-side panel tells you already the maximum IR drop. :warning: **It is highly recommended that the worst-case drop needs to be 2.5% of the operating voltage. In this case ,our operating voltage was 0.8V and the 2.5% drop is 20 mV**
+
+
 
 
 
