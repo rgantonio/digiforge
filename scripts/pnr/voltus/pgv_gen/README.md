@@ -185,6 +185,8 @@ At the end of this you should get a `.cl` library. You will use these files for 
 
 # Other Notes
 
+:pushpin: *Where would you use this for?* You need to do this for generating PGV views of your memories, custom IPs, and even IO cells (some foundries don't provide this).
+
 :pushpin: *Is it possible to create a PGV library without the GDS?* Yes! You just need to exclude the following:
 
 - `set_advanced_pg_library_mode -xtc_command_file ./project.xtc` - this is not needed as this is used for GDS extraction only
