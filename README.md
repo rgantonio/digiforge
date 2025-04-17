@@ -1,6 +1,6 @@
-# The Digital Forge
+# :european_castle: :fire: The Digital Forge :fire: :european_castle:
 
-:european_castle: :fire: Welcome to the digital forge! :fire: :european_castle:
+ Welcome to the digital forge! 
 
 This repository is a collection of designs, scripts, and documents for digital designs.
 It is a design repository that acts like a journal for building upon knowledge and expertise.
