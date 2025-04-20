@@ -21,7 +21,7 @@ verilator --sv ../tb/uart/tb_uart_txrx.sv ../rtl/uart/uart_rx.sv ../rtl/uart/uar
 ```
 Note that these warnings prohibit the Verilator compiler to proceed. In thise case the `CASEINCOMPLETE` and the `WIDTHTRUNC` would report a warning if the `-Wno` was not added. Those warnings are blocking so be sure to add them.
 
-:cyclone: Addin VCD dump:
+:cyclone: Adding VCD dump:
 
 ```bash
 verilator --sv ../tb/uart/tb_uart_txrx.sv ../rtl/uart/uart_rx.sv ../rtl/uart/uart_tx.sv  +incdir+../tb/tasks --binary -Wno-CASEINCOMPLETE -Wno-WIDTHTRUNC -Wno-WIDTHEXPAND --trace
