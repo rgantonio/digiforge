@@ -4,7 +4,7 @@
 // Author: Danknight <rgantonio@github.com>
 //--------------------------
 
-module tb_uart_tx;
+module tb_uart_rxtx;
 
   // Parameters
   parameter int unsigned MAX_WIDTH     = 32;
@@ -99,6 +99,10 @@ module tb_uart_tx;
   // So we need to set the baud rate to 65.1
   // Round up to the nearest integer is 66
   initial begin
+
+    // Dump VCD
+    $dumpfile("tb_uart_txrx.vcd");
+    $dumpvars(0, tb_uart_rxtx);
 
     // Initialize inputs
     rst_ni        = 0;
