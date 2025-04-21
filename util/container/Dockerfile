@@ -1,6 +1,6 @@
 
 ARG VERILATOR_VERSION=5.034
-ARG UBUNTU_VERSION=22.04
+ARG UBUNTU_VERSION=24.04
 
 FROM ubuntu:${UBUNTU_VERSION} AS builder
 
@@ -35,7 +35,7 @@ RUN apt-get update && apt-get install -y lsb-release wget software-properties-co
 # Install Verilator
 RUN git clone https://github.com/verilator/verilator && \
     cd verilator && \
-    git checkout v5.024 && \
+    git checkout v${VERILATOR_VERSION} && \
     unset VERILATOR_ROOT && \
     autoconf && \
     ./configure && \
