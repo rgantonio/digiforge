@@ -5,7 +5,9 @@ In this directory you will find useful tips and tricks for synthesis.
 ## :zap: Goals for Synthesis
 
 :zap: Main goal: Synthesize RTL to produce logic-gate (pre-GDS library) design
+
 :zap: Fix target synthesis setup violations here
+
 :zap: Generate and link special macros (e.g., memories, clock gates, clock logic, latches, and other IP)
 
 ## :sparkles: Best Practices
