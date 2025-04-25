@@ -30,10 +30,7 @@ define_name_rules verilog \
     -dummy_net_prefix "synp_unconn_%d" \
     -preserve_struct_ports
 
-# Define working directories
-define_design_lib WORK -path work-hemaia/work
-set search_path "$search_path work-hemaia/logs work-hemaia/outputs work-hemaia/pdk work-hemaia/cons ./"
-
+set workdir_path "./path_to_workdir"
 set log_path "./path_to_logs"
 set report_path "./path_to_reports"
 set output_path "./path_to_outputs"
@@ -42,6 +39,10 @@ set sdc_constraints_path "./path_to_sdc_constraints"
 set stdcell_dir_path "./path_to_stdcell_dir"
 set memories_dir_path "./path_to_memories_dir"
 set other_ip_dir_path "./path_to_other_ip_dir"
+
+# Define working directories
+define_design_lib WORK -path $workdir_path/work
+set search_path "$search_path $log_path $output_path $sdc_constraints_path ./"
 
 #-----------------------------
 # 1. Set the library paths
@@ -70,13 +71,13 @@ source $flist_path/syn_flist.tcl
 # Elaborate to check and see the synthesizability of the design
 # Also check for latches at this point
 # Eveen with weird looking components
-elaborate hemaia_chip_top
+elaborate system_top
 
 # Apply the defined named rules to the design
 change_names -rules verilog -hierarchy
 
 # Set the top module of your design
-current_design hemaia_chip_top
+current_design system_top
 
 # Link the elaborated design to the libraries
 # At this step you should verify that the link is correct
