@@ -52,6 +52,7 @@ module tb_mem_unit;
 
   // Include some common tasks
   `include "common_tasks.sv"
+  `include "mem_tasks.sv"
 
   // Instantiate the memory unit
   mem_unit #(
