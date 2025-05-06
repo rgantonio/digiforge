@@ -4,7 +4,7 @@
 
 [project]
 authors = ["Danknight <https://github.com/rgantonio>"]
-channels = ["conda-forge","kuleuven-micas"]
+channels = ["conda-forge", "bioconda", "kuleuven-micas"]
 description = "A heterogeneous accelerator-centric compute cluster"
 name = "digiforge"
 platforms = ["linux-64"]
@@ -44,6 +44,7 @@ hjson-py = ">=3.1.0,<4"
 clang-format = ">=19.1.7,<20"
 wget = ">=1.21.4,<2"
 pip = ">=25.0.1,<26"
+snakemake-minimal="*"
 
 [activation.env]
 VLT_ROOT = "${CONDA_PREFIX}/share/verilator"
