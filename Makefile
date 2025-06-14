@@ -9,8 +9,8 @@ FLIST_DIRS		:= flists
 FILELIST        := $(TEST_MODULE).flist
 FILE_PATH 		:= $(FLIST_DIRS)/$(FILELIST)
 
-
-VLT_OPT         := -O0
+VLT_FLAGS       := -O0
+VLT_FLAGS       += --trace
 
 VLT_WAIVE 		:= -Wno-CASEINCOMPLETE
 VLT_WAIVE 		+= -Wno-WIDTHTRUNC
@@ -29,7 +29,7 @@ $(BIN_DIR):
 	mkdir -p $@
 
 $(BIN_DIR)/$(TEST_MODULE): $(BIN_DIR) $(FILE_PATH)
-	$(VERILATOR) --sv $(SRCS) $(INCLUDE_DIRS) $(VLT_WAIVE) $(VLT_OPT) --binary -o $(TEST_MODULE)
+	$(VERILATOR) --sv $(SRCS) $(INCLUDE_DIRS) $(VLT_WAIVE) $(VLT_FLAGS) --binary -o $(TEST_MODULE)
 	cp $(OBJ_DIR)/$(TEST_MODULE) $(BIN_DIR)/.
 	rm -rf $(OBJ_DIR)
 
