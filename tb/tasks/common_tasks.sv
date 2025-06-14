@@ -4,6 +4,12 @@
 // Author: Danknight <rgantonio@github.com>
 //--------------------------
 
+// Time delays
+task time_delay (input delay);
+  begin
+    #delay;
+  end
+endtask
 
 // Clock delays
 task clk_delay(
