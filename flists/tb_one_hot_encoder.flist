@@ -1,0 +1,2 @@
+tb/common/tb_one_hot_encoder.sv
+rtl/common/one_hot_encoder.sv
