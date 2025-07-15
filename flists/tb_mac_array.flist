@@ -1,0 +1,3 @@
+tb/systolic_array/tb_mac_array.sv
+rtl/systolic_array/mac_array.sv
+rtl/systolic_array/mac_pe.sv
