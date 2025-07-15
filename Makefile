@@ -11,6 +11,7 @@ FILE_PATH 		:= $(FLIST_DIRS)/$(FILELIST)
 
 VLT_FLAGS       := -O0
 VLT_FLAGS       += --trace
+VLT_FLAGS	    += --trace-structs
 
 VLT_WAIVE 		:= -Wno-CASEINCOMPLETE
 VLT_WAIVE 		+= -Wno-WIDTHTRUNC
