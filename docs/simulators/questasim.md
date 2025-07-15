@@ -57,3 +57,23 @@ run -all
 Then call it via `vsim -gui -do script.do`.
 
 :milky_way: Optionally, if you don't want the gui but just to load the program and run the testbench without signals, you can do `vsim -c -do script.do`.
+
+:milky_way: Questasim is useful to annotate SDF and simulate actual logic gate delays. In your `.do` script make sure to add `-sdftyp /tb_top/i_top=<path to sdf>/top.sdf` such that:
+
+```tcl
+vsim -voptargs="+acc" work.tb_top -sdftyp /tb_top/i_top=<path to sdf>/top.sdf -do "add wave -r /*; run -all"
+```
+
+Where the left-side of the equals is the hierarchical path in simulation and the right-hand side is the path to the sdf.
+
+:warning: There are times when SDF annotation isn't correct due to the following reasons:
+
+- The path of your hierarchy and the one in the sdf may not match. Make sure you have the correct hierarchy.
+- There are some escape characters that are not friendly. In questasim, the square brackets `[]` need to be escaped with `\[ \]` otherwise it will complain.
+
+:milky_way: Sometimes, some of those hanging delays may not be important for synthesis measurements so you can skip them. Just add the `-sdfnoerror` into the `vsim` arguments.
+
+:warning: This can be a make or break. Sometimes it is okay, sometimes it is not. The only time it is OK if it hits a clock-domain crossing (CDC) which are mostly hold violations due to the clock. If it's a setup problem, you need to sanity check it.
+
+
+:milky_way: A good sdf annotation is when it achieves 100% annotation and when there are no errors. Bypassing errors is a "watch-out!" scenario. If you see negative timing checks, that is fine because it is due to the library specs. Negative timing checks appear as warnings anyway.
