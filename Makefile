@@ -34,8 +34,26 @@ $(BIN_DIR)/$(TEST_MODULE): $(BIN_DIR) $(FILE_PATH)
 	cp $(OBJ_DIR)/$(TEST_MODULE) $(BIN_DIR)/.
 	rm -rf $(OBJ_DIR)
 
+
+questasim.do: $(FILE_PATH)
+	@echo 'Generating $@'
+	@printf '%s\n' "\
+	vlib work \n \
+	vlog -sv -f $(FILE_PATH) $(INCLUDE_DIRS) \n \
+	vsim -voptargs=\"+acc\" work.$(TEST_MODULE) \n \
+	add wave -r /* \n \
+	run -all \n" > $@
+
+questasim-run: questasim.do
+	@echo 'Running Questasim simulatio w/ Command Line Interface'
+	vsim -c -do questasim.do
+
+questasim-run-gui: questasim.do
+	@echo 'Running Questasim simulation w/ GUI'
+	vsim -gui -do questasim.do
+
 # ==== CLEAN ====
 clean:
-	rm -rf $(OBJ_DIR) $(BIN_DIR) *.vcd
+	rm -rf $(OBJ_DIR) $(BIN_DIR) *.vcd transcript *.do work
 
-.PHONY: all clean
+.PHONY: all clean questasim.do
