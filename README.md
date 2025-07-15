@@ -12,7 +12,7 @@ It is a design repository that acts like a journal for building upon knowledge a
 - :blue_book: `docs`: Tutorials, guides, and other useful information are found here. Other guides may be within their own respective directories.
 - :hammer: :fire: `synthoria`: Useful scripts for running flows. Most useful especially for back-end tutorials.
 
-# Quick Start
+# Quick Start - Verilator
 
 - The main open-source simulator is [Verilator](https://www.veripool.org/verilator/). To build a sample simulation, pick one of the test benches:
 
@@ -31,3 +31,17 @@ bin/tb_counter
     - The necessary `tb` files under the `tb` directory.
     - The filelist listed in hierarchical order of all the files under the `flists` directory.
     - Make sure to name the `flist` accourding to the testbench name so that the `make` executes accordingly.
+
+# Quck Start - Questasim
+
+- If you have `questasim` for better waveform viewing, you can automatically build and run on the simulator with:
+
+```bash
+make questasim-run-gui TEST_MODULE=tb_counter
+```
+
+- You can also build the `.do` file with:
+
+```bash
+make questasim.do TEST_MODULE=tb_systolic_array
+```
