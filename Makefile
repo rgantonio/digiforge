@@ -37,12 +37,11 @@ $(BIN_DIR)/$(TEST_MODULE): $(BIN_DIR) $(FILE_PATH)
 
 questasim.do: $(FILE_PATH)
 	@echo 'Generating $@'
-	@printf '%s\n' "\
-	vlib work \n \
-	vlog -sv -f $(FILE_PATH) $(INCLUDE_DIRS) \n \
-	vsim -voptargs=\"+acc\" work.$(TEST_MODULE) \n \
-	add wave -r /* \n \
-	run -all \n" > $@
+	@echo vlib work > $@
+	@echo vlog -sv -f $(FILE_PATH) $(INCLUDE_DIRS) >> $@
+	@echo vsim -voptargs=\"+acc\" work.$(TEST_MODULE) >> $@
+	@echo add wave -r \/\* >> $@
+	@echo run -all >> $@
 
 questasim-run: questasim.do
 	@echo 'Running Questasim simulatio w/ Command Line Interface'
@@ -54,6 +53,6 @@ questasim-run-gui: questasim.do
 
 # ==== CLEAN ====
 clean:
-	rm -rf $(OBJ_DIR) $(BIN_DIR) *.vcd transcript *.do work
+	rm -rf $(OBJ_DIR) $(BIN_DIR) *.vcd transcript *.do work *.wlf
 
 .PHONY: all clean questasim.do
