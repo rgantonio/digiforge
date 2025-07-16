@@ -155,3 +155,10 @@ report_power -nosplit > $report_path/power.rpt
 # Report some switching activity info
 report_switching_activity -average_activity -hierarchy > $report_path/switching_activity_hierarchy.rpt
 ```
+
+
+# Reference
+
+Information on how to run these are scattered throughout the web. There are some new tools and some old.
+
+- [Old PrimeTime PX 2010 Guide](https://picture.iczhiku.com/resource/eetop/SYieRrkKUOILfMvn.pdf): Was a hidden gem to use legacy analysis methodology.
