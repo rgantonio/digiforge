@@ -82,7 +82,9 @@ Where the left-side of the equals is the hierarchical path in simulation and the
 :milky_way: To do proper power analysis, we need to generate `.saif` files (switching activitiy) for a more compact model for toggling against the `.vcd` which is magnitudes higher on memory consumption. The correct solution is hidden in the [Xilinx guide](https://docs.amd.com/r/en-US/ug900-vivado-logic-simulation/Dumping-SAIF-in-Questa-Advanced-Simulator/ModelSim). Just in case the site gets obsolete the solution is to add `power add <insert module to record>` and `power report -all -basif <insert dump file>` to dump the SAIF.
 
 ```tcl
-power add tb_top/i_dut/*
+power add -r tb_top/i_dut/*
 run -all
 power report -all -bsaif dut.saif
 ```
+
+- Take note that the `-r` needs to be before the top-module path.
