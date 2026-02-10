@@ -108,12 +108,13 @@ val word = highByte ## lowByte
 
 - Below is a list of builtin operators in Chisel:
 
-![alt text](image.png)
+<img width="992" height="451" alt="image" src="https://github.com/user-attachments/assets/8f285901-d6c5-4080-841c-28d4ba3e4b59" />
 
 
 - Below is a list of various functions:
 
-![alt text](image-1.png)
+<img width="968" height="342" alt="image" src="https://github.com/user-attachments/assets/d62269af-4d3b-4d81-b027-a2bade8a2620" />
+
 
 - One of the most common mechanisms in digital logic design is the multiplexer
 - a is selected when sel is `true.B`; b otherwise
@@ -214,7 +215,8 @@ val channel = ch
 - Individual elements are accessed with `(index)`
 - A vector wrapped into a wire is just a multiplexer
 
-![alt text](image-2.png)
+<img width="575" height="332" alt="image" src="https://github.com/user-attachments/assets/49c4df67-31bc-44e0-83a6-1369fabfeb38" />
+
 
 ```scala
 val v = Wire(Vec(3, UInt(4.W)))
@@ -285,8 +287,7 @@ val dout = vReg(rdIdx)
 vReg(wrIdx) := din
 ```
 
-![alt text](image-3.png)
-
+<img width="772" height="563" alt="image" src="https://github.com/user-attachments/assets/efbe1ce9-f21c-4640-b9e0-ba283659074f" />
 
 
 - A register of a vector can also be initialized during reset
@@ -425,5 +426,6 @@ val number = WireDefault(10.U(4.W))
 // Registers are 8-bits
 val reg = RegInit(0.S(8.W))
 ```
+
 
 
