@@ -5,7 +5,8 @@
 - Here we just copy-pasted from other sources but it's good to know where to configure the system.
 - Typical directory tree for a chisel project is shown below:
 
-![alt text](image.png)
+<img width="621" height="356" alt="image" src="https://github.com/user-attachments/assets/11d95f59-2562-435b-9918-d5033fc17469" />
+
 
 - Chisel inherits from Scala, which inherits intself from Java, the organization of packages.
 - Packages organize chisel code into namespaces.
@@ -327,4 +328,5 @@ class DeviceUnderTestPrintf extends Module {
         io.out := io.a & io.b
         printf("dut: %d %d %d\n", io.a, io.b, io.out)
     }
+
 ```
