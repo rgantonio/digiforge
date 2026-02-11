@@ -69,13 +69,13 @@ class Counter extends Module{
 
 - The schematic of the above code is:
 
-![alt text](image.png)
+<img width="946" height="404" alt="image" src="https://github.com/user-attachments/assets/0c5226b6-6bd1-4827-9b22-ec9ce49a04d5" />
 
 ## Nested Components
 
 - We can also make nested components like the one below:
 
-![alt text](image-1.png)
+<img width="864" height="428" alt="image" src="https://github.com/user-attachments/assets/6c814f91-e341-4117-93f6-343996f0f7fe" />
 
 - Observe that `CompA` and `CompB` are within `CompC` then of course `CompD` is outside.
 
@@ -238,5 +238,6 @@ fetch.io <> decode.io
 decode.io <> execute.io
 io <> execute.io
 ```
+
 
 > Warning! As a classic Verilog designer, this is not something I would want... I think it is error prone if we are not careful, but it does have its benefits of automating connections if we are lazy.
