@@ -328,3 +328,5 @@ val mem = SyncReadMem(1024, UInt(8.W))
 loadMemoryFromFileInline(mem, "hello.hex", firrtl.annotations.MemoryLoadFileType.Hex)
 ```
 
+
+
