@@ -121,7 +121,8 @@ val encOut = v(15)
 - It's a priority arbiter.
 - See the figure below:
 
-![alt text](image.png)
+<img width="430" height="249" alt="image" src="https://github.com/user-attachments/assets/9fbc4180-09cc-4cf0-ba43-0129c9bf87a5" />
+
 
 - Suppose request `r = {0101}` then the grant is `g = {0001}`.
 - Bit position of request is the requestor, and grant is the grantor.
@@ -175,3 +176,4 @@ for (i <- 1 until n) {
 val equ = a === b
 val gt = a > b
 ```
+
