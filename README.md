@@ -45,3 +45,8 @@ make questasim-run-gui TEST_MODULE=tb_counter
 ```bash
 make questasim.do TEST_MODULE=tb_systolic_array
 ```
+
+# Quick Start - Chisel
+
+- You need to move to the `chisel` directory as the `sbt` starts from there.
+- Then follow the [chisel-readme](./chisel/README.md) to see how to use Chisel from there.
