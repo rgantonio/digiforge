@@ -16,3 +16,8 @@ class Simple extends Module {
   io.out := io.a + io.b
   io.equ := io.a === io.b
 }
+
+object SimpleMain extends App {
+  println("Generating the Simple hardware")
+  emitVerilog(new Simple, Array("--target-dir", "generated"))
+}
