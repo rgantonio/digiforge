@@ -1,0 +1,4 @@
+chisel/generated/
+chisel/project/
+chisel/target/
+chisel/test_run_dir/
