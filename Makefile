@@ -23,7 +23,7 @@ OBJ_DIR         := obj_dir
 # Derived from $(FILE_PATH)
 SRCS := $(shell cat $(FILE_PATH))
 
-# ==== BUILD TARGET ====
+# ==== Verilator ====
 all: $(BIN_DIR)/$(TEST_MODULE)
 
 $(BIN_DIR):
@@ -34,7 +34,7 @@ $(BIN_DIR)/$(TEST_MODULE): $(BIN_DIR) $(FILE_PATH)
 	cp $(OBJ_DIR)/$(TEST_MODULE) $(BIN_DIR)/.
 	rm -rf $(OBJ_DIR)
 
-
+# ==== QuestaSim ====
 questasim.do: $(FILE_PATH)
 	@echo 'Generating $@'
 	@echo vlib work > $@
