@@ -17,6 +17,7 @@ VLT_FLAGS	    += --trace-structs
 VLT_WAIVE 		:= -Wno-CASEINCOMPLETE
 VLT_WAIVE 		+= -Wno-WIDTHTRUNC
 VLT_WAIVE 		+= -Wno-WIDTHEXPAND
+VLT_WAIVE 		+= -Wno-UNOPTFLAT
 
 BIN_DIR			:= bin
 OBJ_DIR         := obj_dir
