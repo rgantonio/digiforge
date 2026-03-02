@@ -40,6 +40,12 @@ bin/tb_counter
 make questasim-run-gui TEST_MODULE=tb_counter
 ```
 
+- If you don't want the GUI just drop the GUI:
+
+```bash
+make questasim-run TEST_MODULE=tb_counter
+```
+
 - You can also build the `.do` file with:
 
 ```bash
