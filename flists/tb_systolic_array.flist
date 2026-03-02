@@ -1,5 +1,5 @@
-tb/systolic_array/tb_systolic_array.sv
-rtl/systolic_array/top_systolic_array.sv
-rtl/systolic_array/stream_out.sv
-rtl/systolic_array/mac_array.sv
-rtl/systolic_array/mac_pe.sv
+sv/tb/systolic_array/tb_systolic_array.sv
+sv/rtl/systolic_array/top_systolic_array.sv
+sv/rtl/systolic_array/stream_out.sv
+sv/rtl/systolic_array/mac_array.sv
+sv/rtl/systolic_array/mac_pe.sv

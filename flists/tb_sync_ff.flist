@@ -1,2 +1,2 @@
-tb/common/tb_sync_ff.sv
-rtl/common/sync_ff.sv
+sv/tb/common/tb_sync_ff.sv
+sv/rtl/common/sync_ff.sv

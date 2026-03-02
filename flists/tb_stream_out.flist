@@ -1,2 +1,2 @@
-tb/systolic_array/tb_stream_out.sv
-rtl/systolic_array/stream_out.sv
+sv/tb/systolic_array/tb_stream_out.sv
+sv/rtl/systolic_array/stream_out.sv

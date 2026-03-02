@@ -1,2 +1,2 @@
-tb/common/tb_counter.sv
-rtl/common/counter.sv
+sv/tb/common/tb_counter.sv
+sv/rtl/common/counter.sv
