@@ -3,6 +3,9 @@
 //-------------------------
 `include "registers.svh"
 
+//-------------------------
+// Unit Bundler Module
+//-------------------------
 module unit_bundler #(
   parameter int unsigned DataWidth = 8
 )(
@@ -43,5 +46,38 @@ module unit_bundler #(
   // Output assignments
   assign bundler_data_o = bundler_q;
   assign bundler_data_bin_o = (bundler_q >= 0);
+
+endmodule
+
+//-------------------------
+// Main Bundler Top
+//-------------------------
+module bundler #(
+  parameter int unsigned DimensionSize = 128,
+  parameter int unsigned DataWidth = 8
+)(
+  input  logic                            clk_i,
+  input  logic                            rst_ni,
+  input  logic                            clr_i,
+  input  logic                            data_valid_i,
+  input  logic        [DimensionSize-1:0] data_i,
+  output logic signed [    DataWidth-1:0] bundler_data_o [DimensionSize],
+  output logic        [DimensionSize-1:0] bundler_data_bin_o
+);
+
+  genvar i;
+  for (i=0; i < DimensionSize; i++) begin: gen_unit_bundler
+    unit_bundler #(
+      .DataWidth(DataWidth)
+    ) unit_bundler_inst (
+      .clk_i              ( clk_i                 ),
+      .rst_ni             ( rst_ni                ),
+      .clr_i              ( clr_i                 ),
+      .data_valid_i       ( data_valid_i          ),
+      .data_i             ( data_i[i]             ),
+      .bundler_data_o     ( bundler_data_o[i]     ),
+      .bundler_data_bin_o ( bundler_data_bin_o[i] )
+    );
+  end
 
 endmodule
