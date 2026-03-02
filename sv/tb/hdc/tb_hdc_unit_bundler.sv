@@ -41,6 +41,12 @@ module tb_hdc_unit_bundler;
     forever #5 clk_i = ~clk_i; // Toggle clock every 5 time units
   end
 
+  // Some variables
+  int target_value;
+  int current_value;
+  int bin_value;
+  int test_passed = 1;
+
   // Drivers
   initial begin
     // Initial values
@@ -60,9 +66,9 @@ module tb_hdc_unit_bundler;
     // Iterating test
     for (int i = 0; i < NumTests; i++) begin
       // Some working variables
-      int target_value = $urandom_range(0, 255);
-      int current_value = 0;
-      int bin_value = 0;
+      target_value = $urandom_range(0, 255);
+      current_value = 0;
+      bin_value = 0;
       
       for (int j = 0; j < target_value; j++) begin
         bin_value = $urandom_range(0, 1);
@@ -78,14 +84,28 @@ module tb_hdc_unit_bundler;
       end
 
       assert (bundler_data_o == current_value)
-      else $error("Bundler out: %0d, expected: %0d", bundler_data_o, current_value);
+      else begin 
+        $error("Iter i: %0d, Bundler out: %0d, expected: %0d", i, bundler_data_o, current_value);
+        test_passed = 0;
+      end
 
       assert (bundler_data_bin_o == (current_value >= 0)) 
-      else $error("Bundler bin out: %0d, expected: %0d", bundler_data_bin_o, (current_value >= 0));
+      else begin 
+        $error("Iter i: %0d, Bundler bin out: %0d, expected: %0d", i, bundler_data_bin_o, (current_value >= 0));
+        test_passed = 0;
+      end
+
+      // Clear the counter for the next test
+      clr_i = 1;
+      clk_delay(1);
+      clr_i = 0;
 
     end
 
-    $display("Test pass!");
+    if (test_passed)
+      $display("Test pass!");
+    else
+      $display("Test failed!");
     $finish;
   end
 

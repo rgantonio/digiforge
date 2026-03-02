@@ -18,6 +18,7 @@ task clk_delay(
   begin
     for(int i=0; i < delay; i++) begin
       @(posedge clk_i);
+      #1;
     end
   end
 endtask
@@ -25,5 +26,6 @@ endtask
 task clk_unit_delay();
   begin
     @(posedge clk_i);
+    #1;
   end
 endtask
