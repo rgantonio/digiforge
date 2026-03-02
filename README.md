@@ -10,7 +10,7 @@ It is a design repository that acts like a journal for building upon knowledge a
 - :computer: `rtl`: Contains several RTL designs ranging from essential components to complex systems. Some of these designs have tutorials and notes on their structure.
 - :wrench: `tb`: Test benches for various designs. Used for proper replication of some experiments.
 - :blue_book: `docs`: Tutorials, guides, and other useful information are found here. Other guides may be within their own respective directories.
-- :hammer: :fire: `synthoria`: Useful scripts for running flows. Most useful especially for back-end tutorials.
+- :hammer: `synthoria`: Useful scripts for running flows. Most useful especially for back-end tutorials.
 
 # Quick Start - Verilator
 
