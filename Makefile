@@ -4,6 +4,7 @@ VERILATOR       := verilator
 TEST_MODULE     := tb_counter
 
 INCLUDE_DIRS    := +incdir+sv/tb/tasks
+INCLUDE_DIRS    += +incdir+sv/hlib
 
 FLIST_DIRS		:= flists
 FILELIST        := $(TEST_MODULE).flist
