@@ -1,5 +1,6 @@
 //-------------------------
 // HDC Bundler Modules
+// Author: Danknight
 //-------------------------
 `include "registers.svh"
 
@@ -54,7 +55,7 @@ endmodule
 //-------------------------
 module bundler #(
   parameter int unsigned DimensionSize = 128,
-  parameter int unsigned DataWidth = 8
+  parameter int unsigned DataWidth     = 8
 )(
   input  logic                            clk_i,
   input  logic                            rst_ni,
