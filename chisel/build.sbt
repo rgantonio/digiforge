@@ -7,7 +7,7 @@ val playJSONVersion = "3.0.4"
 
 lazy val root = (project in file("."))
   .settings(
-    name := "snax-streamer",
+    name := "digi-forge-chisel",
     libraryDependencies ++= Seq(
       "org.scala-lang"     % "scala-compiler" % "2.13.14",
       "org.chipsalliance" %% "chisel"         % chiselVersion,
