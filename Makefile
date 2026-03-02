@@ -3,7 +3,7 @@ VERILATOR       := verilator
 
 TEST_MODULE     := tb_counter
 
-INCLUDE_DIRS    := +incdir+tb/tasks
+INCLUDE_DIRS    := +incdir+sv/tb/tasks
 
 FLIST_DIRS		:= flists
 FILELIST        := $(TEST_MODULE).flist
