@@ -1,0 +1,2 @@
+sv/tb/common/tb_reg_file.sv
+sv/rtl/common/reg_file.sv
