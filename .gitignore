@@ -1,6 +1,7 @@
 chisel/generated/
 chisel/target/
 chisel/test_run_dir/
+chisel/project
 bin/
 *.vcd transcript 
 *.do work 
