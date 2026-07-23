@@ -26,7 +26,7 @@ OBJ_DIR         := obj_dir
 SRCS := $(shell cat $(FILE_PATH))
 
 # ==== Verilator ====
-all: $(BIN_DIR)/$(TEST_MODULE)
+veri-build: $(BIN_DIR)/$(TEST_MODULE)
 
 $(BIN_DIR):
 	mkdir -p $@
@@ -35,6 +35,10 @@ $(BIN_DIR)/$(TEST_MODULE): $(BIN_DIR) $(FILE_PATH)
 	$(VERILATOR) --sv $(SRCS) $(INCLUDE_DIRS) $(VLT_WAIVE) $(VLT_FLAGS) --binary -o $(TEST_MODULE)
 	cp $(OBJ_DIR)/$(TEST_MODULE) $(BIN_DIR)/.
 	rm -rf $(OBJ_DIR)
+
+veri-run: veri-build
+	@echo 'Running Verilator simulation'
+	$(BIN_DIR)/$(TEST_MODULE)
 
 # ==== QuestaSim ====
 questasim.do: $(FILE_PATH)
@@ -45,16 +49,24 @@ questasim.do: $(FILE_PATH)
 	@echo add wave -r \/\* >> $@
 	@echo run -all >> $@
 
-questasim-run: questasim.do
-	@echo 'Running Questasim simulatio w/ Command Line Interface'
+questa-run: questasim.do
+	@echo 'Running Questasim simulation w/ Command Line Interface'
 	vsim -c -do questasim.do
 
-questasim-run-gui: questasim.do
+questa-run-gui: questasim.do
 	@echo 'Running Questasim simulation w/ GUI'
 	vsim -gui -do questasim.do
 
 # ==== CLEAN ====
-clean:
-	rm -rf $(OBJ_DIR) $(BIN_DIR) *.vcd transcript *.do work *.wlf
+clean-all: clean-veri clean-questa
 
-.PHONY: all clean questasim.do
+clean-veri:
+	rm -rf $(OBJ_DIR) $(BIN_DIR) *.vcd
+
+clean-questa:
+	rm -rf work transcript *.do *.wlf *.vcd
+
+clean-chisel:
+	rm -rf chisel/generated chisel/target chisel/test_run_dir
+
+.PHONY: veri-build veri-run clean-all questasim.do questa-run questa-run-gui clean-veri clean-questa clean-chisel
