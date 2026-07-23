@@ -18,10 +18,11 @@ It is a design repository that acts like a journal for building upon knowledge a
 - The main open-source simulator is [Verilator](https://www.veripool.org/verilator/). To build a sample simulation, pick one of the test benches:
 
 ```bash
- make TEST_MODULE=tb_counter all
+ make veri-run TEST_MODULE=tb_counter
 ```
 
-- This builds an executable stored inside the `bin` directory with the name of the testbench you called. To execute the simulation just call the binary:
+- This builds an executable stored inside the `bin` directory with the name of the testbench you called. It also runs the program right-away.
+- To execute the simulation separately call the binary:
 
 ```bash
 bin/tb_counter
@@ -38,13 +39,13 @@ bin/tb_counter
 - If you have `questasim` for better waveform viewing, you can automatically build and run on the simulator with:
 
 ```bash
-make questasim-run-gui TEST_MODULE=tb_counter
+make questa-run-gui TEST_MODULE=tb_counter
 ```
 
 - If you don't want the GUI just drop the GUI:
 
 ```bash
-make questasim-run TEST_MODULE=tb_counter
+make questa-run TEST_MODULE=tb_counter
 ```
 
 - You can also build the `.do` file with:
