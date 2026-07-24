@@ -12,3 +12,4 @@ There are different phases marked by `pN` where `N` is the phase number. Start w
 # Chapters
 - :beginner: Phase 1: RTL Foundations
   - [Exercise 1: Parameterized Register File](p1/e1_parametrized_reg_file.md)
+  - [Exercise 2: Barrel Shifter](p1/e2_barrel_shifter.md)
