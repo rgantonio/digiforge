@@ -58,7 +58,7 @@ questa-run-gui: questasim.do
 	vsim -gui -do questasim.do
 
 # ==== CLEAN ====
-clean-all: clean-veri clean-questa
+clean-all: clean-veri clean-questa clean-chisel
 
 clean-veri:
 	rm -rf $(OBJ_DIR) $(BIN_DIR) *.vcd
