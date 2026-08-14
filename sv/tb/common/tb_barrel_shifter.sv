@@ -41,6 +41,9 @@ module tb_barrel_shifter #(
         .data_o     (data_o     )
     );
 
+    // -------------------------------------------------------------------------
+    // Test and Stimuli
+    // -------------------------------------------------------------------------
     initial begin
         // Initialize all signals
         data_i      = '0;
