@@ -1,0 +1,2 @@
+sv/tb/common/tb_pwm_gen.sv
+sv/rtl/common/pwm_gen.sv
