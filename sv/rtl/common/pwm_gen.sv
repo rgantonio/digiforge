@@ -17,7 +17,7 @@ module pwm_gen #(
     parameter bit          PHASE_CORRECT = 1'b0
 )(
     input  logic                          clk_i,
-    input  logic                          rst_i,
+    input  logic                          rst_ni,
     input  logic                          en_i,
     input  logic [CNT_W-1:0]              period_i,
     input  logic [NUM_CH-1:0][CNT_W-1:0]  duty_i,
@@ -102,8 +102,8 @@ module pwm_gen #(
                     end
                 end
             end else begin
-                dir_d = 1'b0;
                 cnt_d = (end_of_period) ? {CNT_W{1'b0}} : (cnt_q + 1);
+                dir_d = 1'b0;
             end
         end
     end
@@ -146,7 +146,7 @@ module pwm_gen #(
             period_q        <= {CNT_W{1'b0}};
             pwm_q           <= {NUM_CH{1'b0}};
             period_tick_o   <= 1'b0;
-            for (ch = 0; ch < NUM_CH; ch++) begin
+            for (int ch = 0; ch < NUM_CH; ch++) begin
                 duty_q[ch] <= {CNT_W{1'b0}};
             end
         end else begin
@@ -156,12 +156,12 @@ module pwm_gen #(
             period_tick_o   <= end_of_period;
             if(reload) begin
                 period_q <= period_i;
-                for (ch = 0; ch < NUM_CH; ch++) begin
+                for (int ch = 0; ch < NUM_CH; ch++) begin
                     duty_q[ch] <= duty_i[ch];
                 end
             end else begin
                 period_q <= period_q;
-                for (ch = 0; ch < NUM_CH; ch++) begin
+                for (int ch = 0; ch < NUM_CH; ch++) begin
                     duty_q[ch] <= duty_q[ch];
                 end
             end
