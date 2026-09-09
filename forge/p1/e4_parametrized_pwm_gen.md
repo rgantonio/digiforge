@@ -308,7 +308,7 @@ While `en_i` is low: hold `cnt_q` at 0, hold `dir_q` at up, drive all `pwm_o` lo
 **R3 — Counting, edge-aligned mode.**
 While enabled, `cnt_q` increments each cycle. When `cnt_q >= period_q`, the next value is 0 instead.
 
-*Why `>=` and not `==`:* if the counter were ever somehow above the period value, `==` would never fire and the counter would run all the way around the full $2^{\text{CNT\_W}}$ range before recovering. `>=` costs the same comparator and cannot get stuck. In this design the shadow only loads at a wrap, so the situation shouldn't arise — but the safe version is free, so take it.
+*Why `>=` and not `==`:* if the counter were ever somehow above the period value, `==` would never fire and the counter would run all the way around the full $2^{\textrm{CNT\_W}}$ range before recovering. `>=` costs the same comparator and cannot get stuck. In this design the shadow only loads at a wrap, so the situation shouldn't arise — but the safe version is free, so take it.
 
 ---
 
